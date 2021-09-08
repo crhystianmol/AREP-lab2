@@ -10,6 +10,7 @@ Este taller presenta diferentes retos que loa ayudaran a explorar los conceptos 
 
 
 Enlace heroku
-![](https://arep-lab2.herokuapp.com/)
+
+![heroku](https://arep-lab2.herokuapp.com/)
 
 
