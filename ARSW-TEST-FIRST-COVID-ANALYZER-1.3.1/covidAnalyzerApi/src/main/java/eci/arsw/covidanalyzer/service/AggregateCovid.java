@@ -7,9 +7,9 @@ import eci.arsw.covidanalyzer.model.Result;
 import eci.arsw.covidanalyzer.model.ResultType;
 
 @Service
-public class AggregateCovid {
+public class AggregateCovid implements ICovidAggregateService{
     List<Result> respuesta;
-    public CovidAggregate() {
+    public AggregateCovid() {
         respuesta=new CopyOnWriteArrayList<>();
         Result resultado1 = new Result("David","Chacon",1,"3118227475",ResultType.TRUE_POSITIVE);
         Result resultado2 = new Result("Angie","Molano",2,"3102840123",ResultType.TRUE_NEGATIVE);
@@ -21,12 +21,12 @@ public class AggregateCovid {
         respuesta.add(resultado4);
     }
     @Override
-    public boolean aggregateResult(Result result, ResultType type) throws ErrorExcepcion {
+    public boolean aggregateResult(Result result, ResultType type) throws CovidException {
         for (Result it:respuesta)
         {
             if(it.getId()==result.getId())
             {
-                throw new ErrorExcepcion("Esta cuenta ya ha sido creada.");
+                throw new CovidException("Esta cuenta creada.");
             }
         }
         respuesta.add(result);
